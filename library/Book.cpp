@@ -11,32 +11,34 @@ Book::~Book()
 
 }
 
-void Book::setAuthorName()
+void Book::setAuthorName(string Aname)
 {
+	AuthorName = Aname;
+}
 
+void Book::setAvailableQuantity(int Anumber)
+{
+	AvailableQuantity = Anumber;
 
 }
 
-void Book::setAvailableQuantity()
+void Book::setIssuedQuantity(int Iquantity)
 {
-
+	IssuedQuantity = Iquantity;
 
 }
 
-void Book::setIssuedQuantity()
+int Book::getAvailableQuantity()
 {
-
-
+	return AvailableQuantity;
 }
 
-void Book::getAvailableQuantity()
+int Book::getIssuedQuantity()
 {
-
-
+	return IssuedQuantity;
 }
 
-void Book::getIssuedQuantity()
+string Book::getAuthorName()
 {
-
-
+	return AuthorName;
 }

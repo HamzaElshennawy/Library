@@ -54,5 +54,5 @@ string Person::getPersonData()
 	PersonData[1] = name;
 	PersonData[2] = password;
 	PersonData[3] = accountType;
-	return PersonData[0];
+	return *PersonData;
 }

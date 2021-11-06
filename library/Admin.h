@@ -5,7 +5,7 @@
 class Admin: Person
 {
 private:
-	Person* ps;
+	//Person* ps;
 
 protected:
 
@@ -13,9 +13,9 @@ public:
 	Admin();
 	Person AddAdmin(Person *pr);
 	void RemoveAdmin(Admin *ad);
-	void AddStudent(Person pr);
+	Person AddStudent(Person *pr);
 	void RemoveStudent(Student *st);
-	void AddLibrarian(Person pr);
+	Person AddLibrarian(Person *pr);
 	void RemoveLibrarian(Librarian *lb);
 	void show();
 	

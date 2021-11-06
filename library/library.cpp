@@ -6,6 +6,12 @@
 #include "Person.h"
 #include "Student.h"
 #include "library.h"
+#include <vector>
+#include <list>
+#include <map>
+#include <unordered_map>
+#include <string>
+
 using namespace std;
 int main()
 {
@@ -14,19 +20,11 @@ int main()
     
     Person p;
     p.setPersonData("Hamza", "Hamza111",3);
-    //string arr= p.getPersonData();
-    //cout << arr;
     Admin ad;
     Person newAdmin=ad.AddAdmin(&p);
     string name=newAdmin.getPersonName();
     cout << name<<endl;
     cout << newAdmin.getAccountType();
-    //Admin a=ad.AddAdmin(p);
-    
-    //int test=p.getAccountType();
-    
-    //cout << test;
-    
     
     
     

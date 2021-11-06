@@ -5,17 +5,18 @@ class Book
 private:
 	
 	string AuthorName;//author name
-	int AvailableQuantity;
-	int IssuedQuantity;
+	int AvailableQuantity=0;
+	int IssuedQuantity=0;
 protected:
 	static int BooksID;
 public:
 	Book();
 	~Book();
-	void setAuthorName();
-	void setAvailableQuantity();
-	void setIssuedQuantity();
-	void getAvailableQuantity();
-	void getIssuedQuantity();
+	void setAuthorName(string Aname);
+	void setAvailableQuantity(int Aquantity);
+	void setIssuedQuantity(int Iquantity);
+	int getAvailableQuantity();
+	int getIssuedQuantity();
+	string getAuthorName();
 };
 

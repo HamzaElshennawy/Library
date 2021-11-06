@@ -23,9 +23,10 @@ void Admin::RemoveAdmin(Admin *ad)
 	delete ad;
 }
 
-void Admin::AddStudent(Person pr)
+Person Admin::AddStudent(Person *pr)
 {
-	pr.setAccountType(3);
+	pr->setAccountType(3);
+	return *pr;
 }
 
 void Admin::RemoveStudent(Student *st)
@@ -33,9 +34,10 @@ void Admin::RemoveStudent(Student *st)
 	delete st;
 }
 
-void Admin::AddLibrarian(Person pr)
+Person Admin::AddLibrarian(Person *pr)
 {
-	pr.setAccountType(2);
+	pr->setAccountType(2);
+	return *pr;
 }
 
 void Admin::RemoveLibrarian(Librarian *lb)
