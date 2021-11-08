@@ -46,13 +46,17 @@ string Person::getPersonPassword()
 
 
 
-string Person::getPersonData()
+string Person::getPersonData(int i)
 {
 	string id= to_string(PersonID);
-	string PersonData[4];
-	PersonData[0] = PersonID;
+	
+	PersonData[0] = to_string(PersonID);
 	PersonData[1] = name;
 	PersonData[2] = password;
-	PersonData[3] = accountType;
-	return *PersonData;
+	PersonData[3] = to_string(accountType);
+	return PersonData[i];
+}
+int Person::getPersonID()
+{
+	return PersonID;
 }

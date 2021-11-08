@@ -9,8 +9,9 @@ private:
 	int accountType=3;//Defult as student ..... 1- for admins 2-for librarians 3- for students.
 	string name;
 	string password;
+	
 protected:
-
+	string PersonData[4];
 public:
 	Person();
 	void setPersonName(string PersonName);
@@ -20,7 +21,9 @@ public:
 	int getAccountType();
 	string getPersonName();
 	string getPersonPassword();
-	string getPersonData();  //this function will return string array contains (id,name,password,account type(who will be effected from drived classes)) 
+	string getPersonData(int i);  //this function will return string array contains (id,name,password,account type(who will be effected from drived classes)) 
 							 //[0]=ID, [1]= Name, [2], Password, [3]=Account Type
+	int getPersonID();
+	
 };
 
