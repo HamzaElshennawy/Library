@@ -11,9 +11,13 @@
 #include <unordered_map>
 #include <string>
 #include <fstream>
-#include "Login.h"
 
 using namespace std;
+
+
+
+string username;
+int login();
 
 
 
@@ -38,8 +42,11 @@ int main()
     cout << "\t\t\t\t\tWelcome to library system\n";
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
-    
-    login();
+    int level = login();
+    if (level == 3)
+    {
+        cout << "done";
+    }
     
     switch (type)
     {
@@ -115,3 +122,46 @@ Person ReadFromFile()
 //
 //    return true;
 //}
+
+
+
+
+
+int login()
+{
+    int choice, i, exit = 0;
+    string  password, name, fileName, usern, pw, AccountLevel;
+    ofstream fileo;
+    ifstream filei;
+    cout << "\nEnter your username:";
+    cin >> username;
+    cout << "\nEnter your password:";
+    cin >> password;
+    fileName = username + ".txt";
+    filei.open(fileName.c_str());
+    if (!filei.is_open() && filei.fail())
+    {
+        cout << "\nYou are not registered, please contact an admin to register you before logging in.\n";
+        filei.close();
+
+    }
+    
+    
+    getline(filei, AccountLevel);
+    getline(filei, usern);
+    getline(filei, pw);
+    if (username == usern && password == pw)
+    {
+        cout << "\nYou are successfully logged in:)\n";
+
+        getline(filei, AccountLevel);
+        filei.close();
+        return stoi(AccountLevel);
+    }
+    else {
+        cout << "\nWrong username or password!\nPlease try Again.\n";
+        return -1;
+    }
+    cout << endl;
+    
+}
