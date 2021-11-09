@@ -15,7 +15,7 @@
 using namespace std;
 
 
-
+string usern, name;
 string username;
 int login();
 
@@ -32,19 +32,21 @@ int main()
     
     int choice = 0;
     
-    int type = 1;//same from person account type
+    
     system("cls");
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\t\tWelcome to library system\n";
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
-    int level = login();
+    int level = login();//same from person account type
     if (level == 3)
     {
-        cout << "done";
+        cout << "Welcome Mr. "+usern<<", "<<endl;
+        cout << "Please choose what you want to do." << endl;
+        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
     }
     
-    switch (type)
+    switch (level)
     {
     case 1:
         
@@ -67,43 +69,20 @@ int main()
     return 0;
 }
 
-//
-//void WriteToFile(Person pr)
-//{
-//    fstream file_obj;
-//    string PersonAccountType = to_string(pr.getAccountType());
-//    string PersonIDD = to_string(pr.getPersonID());
-//    file_obj.seekg(0);
-//    file_obj.open("test.txt", ios::app);
-//    file_obj.write(pr.getPersonName().c_str(), pr.getPersonName().length() + 1);
-//    file_obj.write(pr.getPersonPassword().c_str(), pr.getPersonPassword().length()+1);
-//    file_obj.close();
-//    
-//}
-//
-//Person ReadFromFile()
-//{
-//    Person pr;
-//    fstream file_obj;
-//    file_obj.open("test.txt", ios::in);
-//    file_obj.read((char*)&pr, sizeof(pr));
-//    return pr;
-//}
-
 int login()
 {
-    string  password, name, fileName, usern, pw, AccountLevel;
+    string  password, fileName,  pw, AccountLevel;
     ofstream fileo;
     ifstream filei;
-    cout << "\nEnter your username:";
+    cout << "\nEnter your username: ";
     cin >> username;
-    cout << "\nEnter your password:";
+    cout << "\nEnter your password: ";
     cin >> password;
     fileName = username + ".txt";
     filei.open(fileName.c_str());
     if (!filei.is_open() && filei.fail())
     {
-        cout << "\nYou are not registered, please contact an admin to register you before logging in.\n";
+        cout << "\nYou are not registered, please contact an admin to register and try again.\n";
         filei.close();
 
     }
@@ -114,8 +93,7 @@ int login()
     getline(filei, pw);
     if (username == usern && password == pw)
     {
-        cout << "\nYou are successfully logged in:)\n";
-
+        cout << "Great!!!!"<<endl;
         getline(filei, AccountLevel);
         filei.close();
         return stoi(AccountLevel);
