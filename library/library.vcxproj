@@ -143,7 +143,9 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="IssuedBooks.cpp" />
     <ClCompile Include="Librarian.cpp" />
-    <ClCompile Include="library.cpp" />
+    <ClCompile Include="library.cpp">
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>

@@ -24,7 +24,7 @@ int login();
 void WriteToFile(Person pr);
 
 
-Person ReadFromFile();
+//Person ReadFromFile();
 bool logedin = false;
 
 int main()
@@ -39,28 +39,27 @@ int main()
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
     int level = login();//same from person account type
-    if (level == 3)
+    /*if (level == 3)
     {
-        cout << "Welcome Mr. "+usern<<", "<<endl;
-        cout << "Please choose what you want to do." << endl;
-        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
-    }
+        
+    }*/
     
     switch (level)
     {
     case 1:
-        
+        cout << "Welcome Mr. " + usern << ", " << endl;
+        cout << "Please choose what you want to do." << endl;
+        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
         break;
     case 2:
 
 
         break;
     case 3:
-
+        
         break;
     default:
-
-        cout << "Something went wrong with error code 1001";
+        cout << "Something went wrong with error code 1001";//first error code
         break;
     }
 
