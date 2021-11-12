@@ -44,8 +44,6 @@ string Person::getPersonPassword()
 	return password;
 }
 
-
-
 string Person::getPersonData(int i)
 {
 	string id= to_string(PersonID);
