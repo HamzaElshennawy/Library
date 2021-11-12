@@ -22,8 +22,11 @@ int login();
 
 
 void WriteToFile(Person pr);
+void ReadAllData();
 
-
+vector<Person> Admins;
+vector<Person> Students;
+vector<Person> Librarians;
 //Person ReadFromFile();
 bool logedin = false;
 
@@ -34,91 +37,82 @@ int main()
     
     
     system("cls");
-    /*Book b1;
-    Book b2;
-    Librarian l1;
-    b1.setBookData();
-    b2.setBookData();
-    l1.AddBook(b1);
-    l1.AddBook(b2);
-    l1.ViewAllBooks();*/
-    
-
-
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\t\tWelcome to library system\n";
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
-    int level = login();//same from person account type
-    if (level)
-    {
-        cout << "Welcome Mr. " + usern << ", " << endl;
-        cout << "Please choose what you want to do." << endl;
-    }
-    
-    switch (level)
-    {
-    case 1:
-        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
-        cin >> choice;
-        if (choice == 1)
-        {
+    ReadAllData();
+    cout << "ex";
+    //int level = login();//same from person account type
+    //if (level)
+    //{
+    //    cout << "Welcome Mr. " + usern << ", " << endl;
+    //    cout << "Please choose what you want to do." << endl;
+    //}
+    //
+    //switch (level)
+    //{
+    //case 1:
+    //    cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
+    //    cin >> choice;
+    //    if (choice == 1)
+    //    {
 
-        }
-        if (choice == 2)
-        {
+    //    }
+    //    if (choice == 2)
+    //    {
 
-        }
-        if (choice == 3)
-        {
+    //    }
+    //    if (choice == 3)
+    //    {
 
-        }
-        if (choice == 4)
-        {
+    //    }
+    //    if (choice == 4)
+    //    {
 
-        }
-        if (choice == 5)
-        {
+    //    }
+    //    if (choice == 5)
+    //    {
 
-        }
-        if (choice == 6)
-        {
+    //    }
+    //    if (choice == 6)
+    //    {
 
-        }
-        break;
-    case 2:
-        cout<<"1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
-        cin >> choice;
-        if (choice == 1)
-        {
+    //    }
+    //    break;
+    //case 2:
+    //    cout<<"1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
+    //    cin >> choice;
+    //    if (choice == 1)
+    //    {
 
-            
-        }
-        if (choice == 2)
-        {
+    //        
+    //    }
+    //    if (choice == 2)
+    //    {
 
-        }
-        if (choice == 3)
-        {
+    //    }
+    //    if (choice == 3)
+    //    {
 
-        }
-        if (choice == 4)
-        {
+    //    }
+    //    if (choice == 4)
+    //    {
 
-        }
-        if (choice == 5)
-        {
+    //    }
+    //    if (choice == 5)
+    //    {
 
-        }
-        if (choice == 6)
-        {
+    //    }
+    //    if (choice == 6)
+    //    {
 
-        }
-        break;
-    default:
-        cout << "Something went wrong with error code 1001";//first error code
-        break;
-    }
+    //    }
+    //    break;
+    //default:
+    //    cout << "Something went wrong with error code 1001";//first error code
+    //    break;
+    //}
 
     
     
@@ -160,4 +154,66 @@ int login()
     }
     cout << endl;
     
+}
+void ReadAllData()
+{
+    int LineCounter = 0;
+    string fileName, AccountLevel;
+    ofstream fileo;
+    ifstream filei;
+    fileName = "Data.txt";
+    filei.open(fileName);
+    if (!filei.is_open() && filei.fail())
+    {
+        cout << "\nError Loading The Data. Please Restart The Application.\n";
+        filei.close();
+    }
+    string statement;
+    cout << endl;
+    while (filei.peek() != EOF)
+    {
+        LineCounter++;
+    }
+    string Iname;
+    string Ipass;
+    for (int i = 0; i < LineCounter; i+=3)
+    {
+        getline(filei, AccountLevel);
+        if (stoi(AccountLevel) == 1)
+        {
+            Person* temp = new Admin(1);
+            getline(filei, Iname);
+            temp->setPersonName(Iname);
+            cout << Iname << endl;
+            getline(filei, Ipass);
+            temp->setPersonPassword(Ipass);
+            cout << Ipass << endl;
+            cout << "Pushed in 1" << endl;
+            Admins.push_back(*temp);
+        }
+        if (stoi(AccountLevel) == 2)
+        {
+            Person* temp = new Librarian(2);
+            getline(filei, Iname);
+            temp->setPersonName(Iname);
+            cout << Iname << endl;
+            getline(filei, Ipass);
+            cout << Ipass << endl;
+            temp->setPersonPassword(Ipass);
+            cout << "Pushed in 2" << endl;
+            Librarians.push_back(*temp);
+        }
+        if (stoi(AccountLevel) == 3)
+        {
+            Person* temp = new Student(3);
+            getline(filei, Iname);
+            temp->setPersonName(Iname);
+            cout << Iname << endl;
+            getline(filei, Ipass);
+            cout << Ipass << endl;
+            temp->setPersonPassword(Ipass);
+            cout << "Pushed in 3" << endl;
+            Students.push_back(*temp);
+        }
+    }
 }

@@ -3,7 +3,7 @@
 #include "Person.h"
 #include <vector>
 
-class Librarian:Person
+class Librarian:public Person
 {
 private:
 	static int LibrarianID;
@@ -11,7 +11,7 @@ private:
 protected:
 
 public:
-	Librarian();
+	Librarian(int level);
 	void AddBook(Book bk);
 	void RemoveBook(Book bk);
 	void IssueBook(Book bk);

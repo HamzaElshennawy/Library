@@ -6,9 +6,10 @@ using namespace std;
 
 int Librarian::LibrarianID = 0;
 vector<Book> Librarian::AllBooks;
-Librarian::Librarian()
+Librarian::Librarian(int level)
 {
 	LibrarianID++;
+	setAccountType(level);
 }
 int Librarian::ReturnLibrarianID()
 {

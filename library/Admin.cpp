@@ -2,15 +2,24 @@
 #include <iostream>
 using namespace std;
 
+int Admin::AdminID = 0;
 /*Admin::Admin(Admin* ad)
 {
 
 
 	ad->setAccountType(1);
 }*/
+Admin::Admin(int level)
+{
+	AdminID++;
+	setPersonName("");
+	setPersonPassword("");
+	setAccountType(level);
+}
 Admin::Admin()
 {
-
+	AdminID++;
+	setAccountType(1);
 }
 Person Admin::AddAdmin(Person *pr)
 {

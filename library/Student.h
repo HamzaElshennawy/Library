@@ -1,6 +1,6 @@
 #pragma once
 #include "Person.h"
-class Student:Person
+class Student:public Person
 {
 private:
 	string BirthDay;
@@ -12,6 +12,7 @@ protected:
 
 public:
 	Student();
+	Student(int level);
 	~Student();
 	void setBirthDay();
 	void setEmail();
