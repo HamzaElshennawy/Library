@@ -5,6 +5,7 @@ class Book
 private:
 	
 	string AuthorName;//author name
+	string Bname;//Book Name
 	int AvailableQuantity=0;
 	int IssuedQuantity=0;
 protected:
@@ -12,11 +13,13 @@ protected:
 public:
 	Book();
 	~Book();
-	void setAuthorName(string Aname);
+	void setAuthorName(string Aname /*Author name*/ );
 	void setAvailableQuantity(int Aquantity);
 	void setIssuedQuantity(int Iquantity);
+	void setBookData();
 	int getAvailableQuantity();
 	int getIssuedQuantity();
+	void getBookData();
 	string getAuthorName();
 };
 

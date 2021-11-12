@@ -1,7 +1,11 @@
+#include <iostream>
 #include "Librarian.h"
 
-int Librarian::LibrarianID = 0;
 
+using namespace std;
+
+int Librarian::LibrarianID = 0;
+vector<Book> Librarian::AllBooks;
 Librarian::Librarian()
 {
 	LibrarianID++;
@@ -10,39 +14,47 @@ int Librarian::ReturnLibrarianID()
 {
 	return LibrarianID;
 }
-//void Librarian::AddBook(Book bk)
-//{
-//
-//
-//}
-//
-//void Librarian::RemoveBook(Book bk)
-//{
-//
-//}
-//
-//void Librarian::IssueBook(Book bk)
-//{
-//
-//}
-//
-//void Librarian::ReturnBook(Book bk)
-//{
-//
-//}
-//
-//void Librarian::ViewBook()
-//{
-//
-//}
-//
-//void Librarian::ViewIssuedBooks()
-//{
-//
-//}
-//
-//void Librarian::SearchForBook()
-//{
-//
-//}
-//
+void Librarian::AddBook(Book bk)
+{
+	AllBooks.push_back(bk);
+
+}
+
+void Librarian::RemoveBook(Book bk)
+{
+
+}
+
+void Librarian::IssueBook(Book bk)
+{
+
+}
+
+void Librarian::ReturnBook(Book bk)
+{
+
+}
+
+void Librarian::ViewAllBooks()
+{
+	for (auto& it:AllBooks )
+	{
+		it.getBookData();
+	}
+}
+
+void Librarian::ViewBook()
+{
+
+}
+
+void Librarian::ViewIssuedBooks()
+{
+
+}
+
+void Librarian::SearchForBook()
+{
+
+}
+
