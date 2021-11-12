@@ -12,6 +12,7 @@
 #include <string>
 #include <fstream>
 #include <conio.h>
+#include <windows.h>
 using namespace std;
 
 
@@ -41,78 +42,82 @@ int main()
     cout << "\t\t\t\t\tWelcome to library system\n";
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
+    cout << "\nReading Data....";
+    Sleep(3000);
+    cout<<"Please wait....";
+    Sleep(2000);
     ReadAllData();
-    cout << "ex";
-    //int level = login();//same from person account type
-    //if (level)
-    //{
-    //    cout << "Welcome Mr. " + usern << ", " << endl;
-    //    cout << "Please choose what you want to do." << endl;
-    //}
-    //
-    //switch (level)
-    //{
-    //case 1:
-    //    cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
-    //    cin >> choice;
-    //    if (choice == 1)
-    //    {
+    
+    int level = login();//same from person account type
+    if (level)
+    {
+        cout << "Welcome Mr. " + usern << ", " << endl;
+        cout << "Please choose what you want to do." << endl;
+    }
+    
+    switch (level)
+    {
+    case 1:
+        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
+        cin >> choice;
+        if (choice == 1)
+        {
 
-    //    }
-    //    if (choice == 2)
-    //    {
+        }
+        if (choice == 2)
+        {
 
-    //    }
-    //    if (choice == 3)
-    //    {
+        }
+        if (choice == 3)
+        {
 
-    //    }
-    //    if (choice == 4)
-    //    {
+        }
+        if (choice == 4)
+        {
 
-    //    }
-    //    if (choice == 5)
-    //    {
+        }
+        if (choice == 5)
+        {
 
-    //    }
-    //    if (choice == 6)
-    //    {
+        }
+        if (choice == 6)
+        {
 
-    //    }
-    //    break;
-    //case 2:
-    //    cout<<"1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
-    //    cin >> choice;
-    //    if (choice == 1)
-    //    {
+        }
+        break;
+    case 2:
+        cout<<"1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
+        cin >> choice;
+        if (choice == 1)
+        {
 
-    //        
-    //    }
-    //    if (choice == 2)
-    //    {
+            
+        }
+        if (choice == 2)
+        {
 
-    //    }
-    //    if (choice == 3)
-    //    {
+        }
+        if (choice == 3)
+        {
 
-    //    }
-    //    if (choice == 4)
-    //    {
+        }
+        if (choice == 4)
+        {
 
-    //    }
-    //    if (choice == 5)
-    //    {
+        }
+        if (choice == 5)
+        {
 
-    //    }
-    //    if (choice == 6)
-    //    {
+        }
+        if (choice == 6)
+        {
 
-    //    }
-    //    break;
-    //default:
-    //    cout << "Something went wrong with error code 1001";//first error code
-    //    break;
-    //}
+        }
+        break;
+    default:
+        cout << "Something went wrong with error code 1001";//first error code
+        break;
+    }
 
     
     
@@ -157,11 +162,12 @@ int login()
 }
 void ReadAllData()
 {
-    int LineCounter = 0;
+    int LineCounter = 9;
     string fileName, AccountLevel;
     ofstream fileo;
     ifstream filei;
     fileName = "Data.txt";
+    
     filei.open(fileName);
     if (!filei.is_open() && filei.fail())
     {
@@ -169,11 +175,17 @@ void ReadAllData()
         filei.close();
     }
     string statement;
+    
     cout << endl;
-    while (filei.peek() != EOF)
-    {
-        LineCounter++;
-    }
+    //while (!filei.eof())
+    //{
+    //    /*getline(filei, statement);
+    //    cout << statement << endl;*/
+    //    cout << filei.peek()<<endl;
+    //    LineCounter++;
+    //    //cout << LineCounter << endl;
+    //}
+    //cout << "while ended";
     string Iname;
     string Ipass;
     for (int i = 0; i < LineCounter; i+=3)
@@ -182,6 +194,7 @@ void ReadAllData()
         if (stoi(AccountLevel) == 1)
         {
             Person* temp = new Admin(1);
+            cout << AccountLevel << endl;
             getline(filei, Iname);
             temp->setPersonName(Iname);
             cout << Iname << endl;
@@ -193,6 +206,7 @@ void ReadAllData()
         }
         if (stoi(AccountLevel) == 2)
         {
+            cout << AccountLevel << endl;
             Person* temp = new Librarian(2);
             getline(filei, Iname);
             temp->setPersonName(Iname);
@@ -205,6 +219,7 @@ void ReadAllData()
         }
         if (stoi(AccountLevel) == 3)
         {
+            cout << AccountLevel << endl;
             Person* temp = new Student(3);
             getline(filei, Iname);
             temp->setPersonName(Iname);
@@ -216,4 +231,5 @@ void ReadAllData()
             Students.push_back(*temp);
         }
     }
+    
 }
