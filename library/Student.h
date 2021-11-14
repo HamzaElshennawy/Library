@@ -12,6 +12,7 @@ protected:
 
 public:
 	Student();
+	Student(string SBD);
 	Student(int level);
 	~Student();
 	void setBirthDay();

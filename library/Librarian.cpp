@@ -11,6 +11,10 @@ Librarian::Librarian(int level)
 	LibrarianID++;
 	setAccountType(level);
 }
+Librarian::Librarian()
+{
+	LibrarianID++;
+}
 int Librarian::ReturnLibrarianID()
 {
 	return LibrarianID;

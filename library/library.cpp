@@ -31,12 +31,18 @@ vector<Person> Librarians;
 //Person ReadFromFile();
 bool logedin = false;
 
+
+Admin AD;
+
+
+
 int main()
 {
     
     int choice = 0;
-    
-    
+    Admins=AD.ReturnAdmins();
+    Students = AD.ReturnStudents();
+    Librarians = AD.ReturnLibrarians();
     system("cls");
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\t\tWelcome to library system\n";

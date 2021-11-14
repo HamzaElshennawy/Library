@@ -12,6 +12,7 @@ protected:
 
 public:
 	Librarian(int level);
+	Librarian();
 	void AddBook(Book bk);
 	void RemoveBook(Book bk);
 	void IssueBook(Book bk);

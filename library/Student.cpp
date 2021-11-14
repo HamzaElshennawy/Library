@@ -10,6 +10,10 @@ Student::Student()
 {
 	
 }
+Student::Student(string SBD)
+{
+	BirthDay = SBD;
+}
 Student::Student(int level)
 {
 	setAccountType(level);

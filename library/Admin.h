@@ -7,18 +7,23 @@ class Admin: public Person
 private:
 	//Person* ps;
 	static int AdminID;
+	static vector<Person> AllAdmins;
+	static vector<Person>AllStudents;
+	static vector<Person>AllLibrarians;
 protected:
 
 public:
 	Admin(int level);
 	Admin();
-	Person AddAdmin(Person *pr);
-	void RemoveAdmin(Admin *ad);
-	Person AddStudent(Person *pr);
-	void RemoveStudent(Student *st);
-	Person AddLibrarian(Person *pr);
-	void RemoveLibrarian(Librarian *lb);
+	void AddAdmin(string AName,string APassword);
+	void RemoveAdmin(string AName);
+	void AddStudent(string SName,string SPassword, string SEmail,string SBD);//SBD=student birthday
+	void RemoveStudent(string SName);
+	void AddLibrarian(string LName,string LPassword);
+	void RemoveLibrarian(string LName);
 	void show();
-	
+	vector<Person> ReturnAdmins();
+	vector<Person> ReturnStudents();
+	vector<Person> ReturnLibrarians()
 };
 

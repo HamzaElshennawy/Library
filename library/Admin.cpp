@@ -1,7 +1,7 @@
 #include "Admin.h"
 #include <iostream>
 using namespace std;
-
+vector<Person> Admin::AllAdmins;
 int Admin::AdminID = 0;
 /*Admin::Admin(Admin* ad)
 {
@@ -21,41 +21,92 @@ Admin::Admin()
 	AdminID++;
 	setAccountType(1);
 }
-Person Admin::AddAdmin(Person *pr)
+void Admin::AddAdmin(string AName,string APassword)
 {
-	pr->setAccountType(1);
-	return *pr;
+	Person* temp = new Admin(1);
+	temp->setPersonName(AName);
+	temp->setPersonPassword(APassword);
+	temp->setAccountType(1);
+	AllAdmins.push_back(*temp);
 }
 
-void Admin::RemoveAdmin(Admin *ad)
+void Admin::RemoveAdmin(string AName)
 {
-	delete ad;
+	int counter = 0;
+	for (auto it : AllAdmins)
+	{
+		
+		if (it.getPersonName() == AName)
+		{
+			AllAdmins.erase(AllAdmins.begin()+counter);
+			break;
+		}
+		counter++;
+	}
 }
 
-Person Admin::AddStudent(Person *pr)
+void Admin::AddStudent(string SName, string SPassword, string SEmail, string SBD)
 {
-	pr->setAccountType(3);
-	return *pr;
+	Person* temp = new Student(SBD);
+	temp->setPersonName(SName);
+	temp->setPersonPassword(SPassword);
+	temp->setAccountType(3);
+	AllStudents.push_back(*temp);
 }
 
-void Admin::RemoveStudent(Student *st)
+void Admin::RemoveStudent(string SName)
 {
-	delete st;
+	int counter = 0;
+	for (auto it : AllStudents)
+	{
+		if (it.getPersonName() == SName)
+		{
+			AllStudents.erase(AllStudents.begin() + counter);
+			break;
+		}
+		counter++;
+	}
 }
 
-Person Admin::AddLibrarian(Person *pr)
+void Admin::AddLibrarian(string LName,string LPassword)
 {
-	pr->setAccountType(2);
-	return *pr;
+	Person* temp = new Librarian();
+	temp->setPersonName(LName);
+	temp->setPersonPassword(LPassword);
+	temp->setAccountType(2);
+	AllLibrarians.push_back(*temp);
 }
 
-void Admin::RemoveLibrarian(Librarian *lb)
+void Admin::RemoveLibrarian(string LName)
 {
-	delete lb;
+	int counter = 0;
+	for (auto it : AllLibrarians)
+	{
+		if (it.getPersonName() == LName)
+		{
+			AllLibrarians.erase(AllLibrarians.begin() + counter);
+			break;
+		}
+		counter++;
+	}
+	
 }
 
 void Admin::show()
 {
 	int t= getAccountType();
 	cout << t;
+}
+
+vector<Person> Admin::ReturnAdmins()
+{
+	return AllAdmins;
+}
+vector<Person> Admin::ReturnStudents()
+{
+	return AllStudents;
+}
+vector<Person> Admin::ReturnLibrarians()
+{
+	return AllLibrarians;
 }
