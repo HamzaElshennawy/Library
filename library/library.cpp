@@ -21,7 +21,7 @@ string username;
 int login();
 
 
-
+void showVectors();
 void WriteToFile(Person pr);
 void ReadAllData();
 
@@ -38,7 +38,6 @@ Admin AD;
 
 int main()
 {
-    
     int choice = 0;
     Admins=AD.ReturnAdmins();
     Students = AD.ReturnStudents();
@@ -53,7 +52,7 @@ int main()
     cout<<"Please wait....";
     Sleep(2000);
     ReadAllData();
-    
+    //showVectors();
     int level = login();//same from person account type
     if (level)
     {
@@ -168,7 +167,7 @@ int login()
 }
 void ReadAllData()
 {
-    int LineCounter = 9;
+    int LineCounter = 12;
     string fileName, AccountLevel;
     ofstream fileo;
     ifstream filei;
@@ -181,17 +180,7 @@ void ReadAllData()
         filei.close();
     }
     string statement;
-    
     cout << endl;
-    //while (!filei.eof())
-    //{
-    //    /*getline(filei, statement);
-    //    cout << statement << endl;*/
-    //    cout << filei.peek()<<endl;
-    //    LineCounter++;
-    //    //cout << LineCounter << endl;
-    //}
-    //cout << "while ended";
     string Iname;
     string Ipass;
     for (int i = 0; i < LineCounter; i+=3)
@@ -199,43 +188,52 @@ void ReadAllData()
         getline(filei, AccountLevel);
         if (stoi(AccountLevel) == 1)
         {
-            Person* temp = new Admin(1);
-            cout << AccountLevel << endl;
+            Person* temp = new Admin(1);            
             getline(filei, Iname);
-            temp->setPersonName(Iname);
-            cout << Iname << endl;
+            temp->setPersonName(Iname);            
             getline(filei, Ipass);
-            temp->setPersonPassword(Ipass);
-            cout << Ipass << endl;
-            cout << "Pushed in 1" << endl;
+            temp->setPersonPassword(Ipass);            
             Admins.push_back(*temp);
         }
         if (stoi(AccountLevel) == 2)
-        {
-            cout << AccountLevel << endl;
+        {            
             Person* temp = new Librarian(2);
             getline(filei, Iname);
-            temp->setPersonName(Iname);
-            cout << Iname << endl;
-            getline(filei, Ipass);
-            cout << Ipass << endl;
+            temp->setPersonName(Iname);            
+            getline(filei, Ipass);            
             temp->setPersonPassword(Ipass);
-            cout << "Pushed in 2" << endl;
             Librarians.push_back(*temp);
         }
         if (stoi(AccountLevel) == 3)
-        {
-            cout << AccountLevel << endl;
+        {            
             Person* temp = new Student(3);
             getline(filei, Iname);
             temp->setPersonName(Iname);
-            cout << Iname << endl;
             getline(filei, Ipass);
-            cout << Ipass << endl;
             temp->setPersonPassword(Ipass);
-            cout << "Pushed in 3" << endl;
             Students.push_back(*temp);
         }
+    }
+}
+void showVectors()
+{
+    for (auto it : Admins)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            cout<<it.getPersonData(i);
+            cout << endl;
+        }
+        cout << "------------------" << endl;
+    }
+    for (auto it : Students)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            cout << it.getPersonData(i);
+            cout << endl;
+        }
+        cout << "------------------" << endl;
     }
     
 }

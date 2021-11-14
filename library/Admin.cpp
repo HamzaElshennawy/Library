@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 vector<Person> Admin::AllAdmins;
+vector<Person> Admin::AllLibrarians;
+vector<Person> Admin::AllStudents;
 int Admin::AdminID = 0;
 /*Admin::Admin(Admin* ad)
 {

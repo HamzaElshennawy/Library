@@ -24,6 +24,6 @@ public:
 	void show();
 	vector<Person> ReturnAdmins();
 	vector<Person> ReturnStudents();
-	vector<Person> ReturnLibrarians()
+	vector<Person> ReturnLibrarians();
 };
 

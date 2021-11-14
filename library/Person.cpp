@@ -51,9 +51,10 @@ string Person::getPersonData(int i)
 	string id= to_string(PersonID);
 	
 	PersonData[0] = to_string(PersonID);
-	PersonData[1] = name;
-	PersonData[2] = password;
-	PersonData[3] = to_string(accountType);
+	PersonData[1] = to_string(accountType);
+	PersonData[2] = name;
+	PersonData[3] = password;
+	
 	return PersonData[i];
 }
 int Person::getPersonID()
