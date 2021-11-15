@@ -1,3 +1,17 @@
+/*
+
+This work had been developed by Hamza Mohammed Elshennawy using C++ and uploaded to Github.
+If anyone wants to clone the project and edit on it or use it for anytype of uses he/she has the full authorty to do it.
+There are no credits on this project. This project is made for educational purposes.
+
+Personal E-mail: elshennawyhamza@gmail.com
+University E-mail: h.elshennawy@nu.edu.eg
+whatsapp number: +201154244911
+Please if there anytype of need to contact me don't hesitate to send me an E-mail or a messege on whatsapp.
+
+
+
+*/
 #include <iostream>
 #include "Admin.h"
 #include "Book.h"
