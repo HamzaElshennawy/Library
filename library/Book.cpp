@@ -6,9 +6,13 @@ using namespace std;
 
 
 int Book::BooksID = 0;
-Book::Book()
+Book::Book(string name,string Aname,int AQuantity)
 {
+	Bname = name;
+	AuthorName = Aname;
+	AvailableQuantity = AQuantity;
 	BooksID++;
+	
 }
 
 Book::~Book()
@@ -65,4 +69,20 @@ void Book::getBookData()
 string Book::getAuthorName()
 {
 	return AuthorName;
+}
+
+string Book::getBookName()
+{
+	return Bname;
+}
+
+void Book::ReturnBook()
+{
+	AvailableQuantity++;
+	IssuedQuantity--;
+}
+
+int Book::getBookID()
+{
+	return BooksID;
 }

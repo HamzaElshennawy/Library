@@ -33,6 +33,7 @@ bool logedin = false;
 
 
 Admin AD;
+Librarian LN;
 
 
 
@@ -148,28 +149,38 @@ int main()
         cin >> choice;
         if (choice == 1)
         {
-
-            
+            LN.AddBook();
         }
         if (choice == 2)
         {
-
+            cout << "Please enter book name";
+            string name;
+            cin >> name;
+            LN.RemoveBook(name);
         }
         if (choice == 3)
         {
-
+            cout << "Please enter book name";
+            string name;
+            int Quan;
+            cin >> name;
+            cout << "Please enter Quantity";
+            LN.IssueBook(name,Quan);
         }
         if (choice == 4)
         {
-
+            cout << "Please enter book name";
+            string name;
+            cin >> name;
+            LN.ReturnBook(name);
         }
         if (choice == 5)
         {
-
+            LN.ViewAllBooks();
         }
         if (choice == 6)
         {
-
+            LN.SearchForBook();
         }
         break;
     default:

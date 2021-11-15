@@ -6,12 +6,12 @@ private:
 	
 	string AuthorName;//author name
 	string Bname;//Book Name
-	int AvailableQuantity=0;
+	int AvailableQuantity;
 	int IssuedQuantity=0;
 protected:
 	static int BooksID;
 public:
-	Book();
+	Book(string name, string Aname, int AQuantity);
 	~Book();
 	void setAuthorName(string Aname /*Author name*/ );
 	void setAvailableQuantity(int Aquantity);
@@ -20,6 +20,9 @@ public:
 	int getAvailableQuantity();
 	int getIssuedQuantity();
 	void getBookData();
+	string getBookName();
 	string getAuthorName();
+	int getBookID();
+	void ReturnBook();
 };
 
