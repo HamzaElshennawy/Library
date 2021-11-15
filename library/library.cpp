@@ -179,9 +179,10 @@ int main()
         {
             cout << "Please enter book name";
             string name;
-            int Quan;
+            int Quan=0;
             cin >> name;
             cout << "Please enter Quantity";
+            cin >> Quan;
             LN.IssueBook(name,Quan);
         }
         if (choice == 4)

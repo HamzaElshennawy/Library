@@ -6,6 +6,7 @@ using namespace std;
 
 int Librarian::LibrarianID = 0;
 vector<Book> Librarian::AllBooks;
+vector<Book> Librarian::IssuedBooks;
 Librarian::Librarian(int level)
 {
 	LibrarianID++;
@@ -123,7 +124,7 @@ void Librarian::ViewIssuedBooks()
 void Librarian::SearchForBook()
 {
 	cout << "Search for book with name or ID?  ";
-	int ID;
+	int ID=0;
 	string name;
 	int choice;
 	cin >> choice;
