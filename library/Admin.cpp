@@ -32,7 +32,7 @@ void Admin::AddAdmin(string AName,string APassword)
 	AllAdmins.push_back(*temp);
 }
 
-void Admin::RemoveAdmin(string AName)
+bool Admin::RemoveAdmin(string AName)
 {
 	int counter = 0;
 	for (auto it : AllAdmins)
@@ -41,10 +41,11 @@ void Admin::RemoveAdmin(string AName)
 		if (it.getPersonName() == AName)
 		{
 			AllAdmins.erase(AllAdmins.begin()+counter);
-			break;
+			return true;
 		}
 		counter++;
 	}
+	return false;
 }
 
 void Admin::AddStudent(string SName, string SPassword, string SEmail, string SBD)
@@ -56,7 +57,7 @@ void Admin::AddStudent(string SName, string SPassword, string SEmail, string SBD
 	AllStudents.push_back(*temp);
 }
 
-void Admin::RemoveStudent(string SName)
+bool Admin::RemoveStudent(string SName)
 {
 	int counter = 0;
 	for (auto it : AllStudents)
@@ -64,10 +65,11 @@ void Admin::RemoveStudent(string SName)
 		if (it.getPersonName() == SName)
 		{
 			AllStudents.erase(AllStudents.begin() + counter);
-			break;
+			return true;
 		}
 		counter++;
 	}
+	return false;
 }
 
 void Admin::AddLibrarian(string LName,string LPassword)
@@ -79,7 +81,7 @@ void Admin::AddLibrarian(string LName,string LPassword)
 	AllLibrarians.push_back(*temp);
 }
 
-void Admin::RemoveLibrarian(string LName)
+bool Admin::RemoveLibrarian(string LName)
 {
 	int counter = 0;
 	for (auto it : AllLibrarians)
@@ -87,11 +89,11 @@ void Admin::RemoveLibrarian(string LName)
 		if (it.getPersonName() == LName)
 		{
 			AllLibrarians.erase(AllLibrarians.begin() + counter);
-			break;
+			return true;
 		}
 		counter++;
 	}
-	
+	return false;
 }
 
 void Admin::show()

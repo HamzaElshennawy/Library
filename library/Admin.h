@@ -16,11 +16,11 @@ public:
 	Admin(int level);
 	Admin();
 	void AddAdmin(string AName,string APassword);
-	void RemoveAdmin(string AName);
+	bool RemoveAdmin(string AName);
 	void AddStudent(string SName,string SPassword, string SEmail,string SBD);//SBD=student birthday
-	void RemoveStudent(string SName);
+	bool RemoveStudent(string SName);
 	void AddLibrarian(string LName,string LPassword);
-	void RemoveLibrarian(string LName);
+	bool RemoveLibrarian(string LName);
 	void show();
 	vector<Person> ReturnAdmins();
 	vector<Person> ReturnStudents();

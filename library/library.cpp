@@ -67,27 +67,80 @@ int main()
         cin >> choice;
         if (choice == 1)
         {
-
+            string name;
+            string password;
+            cout << "Please enter Admin Name: ";
+            cin >> name;
+            cout << "Please enter Admin Password: ";
+            cin >> password;
+            AD.AddAdmin(name,password);
         }
         if (choice == 2)
         {
-
+            string name;
+            cout << "Please enter Admin name";
+            if (AD.RemoveAdmin(name))
+            {
+                cout << "\nRemoved";
+            }
+            else
+            {
+                cout << "\nThis name is not found.";
+            }
         }
         if (choice == 3)
         {
-
+            string name;
+            string password;
+            string email;
+            string BD;//BD is Birthday
+            cout << "Please enter Student Name: ";
+            cin >> name;
+            cout << "Please enter Student Password: ";
+            cin >> password;
+            cout << "Please enter Student Email";
+            cin >> email;
+            cout << "Please enter Student Birthday";
+            cin >> BD;
+            AD.AddStudent(name, password,email,BD);
         }
         if (choice == 4)
         {
-
+            string name;
+            cout << "Please enter Student Name";
+            cin >> name;
+            if (AD.RemoveStudent(name))
+            {
+                cout << "\nRemoved";
+            }
+            else
+            {
+                cout << "\nThis name is not found.";
+            }
         }
         if (choice == 5)
         {
-
+            string name;
+            string password;
+            cout << "Please enter Librarian Name: ";
+            cin >> name;
+            cout << "Please enter Librarian Password: ";
+            cin >> password;
+            AD.AddLibrarian(name, password);
         }
         if (choice == 6)
         {
-
+            string name;
+            cout << "Please enter Student Name";
+            cin >> name;
+            if (AD.RemoveLibrarian(name))
+            {
+                cout << "\nRemoved";
+            }
+            else
+            {
+                cout << "This name is not found";
+            }
         }
         break;
     case 2:
