@@ -3,9 +3,10 @@
 class Student:public Person
 {
 private:
+	static int StudentID;
 	string BirthDay;
 	string Email;
-	int MobileNumber = 0;
+	string MobileNumber;
 
 protected:
 
@@ -14,11 +15,12 @@ public:
 	Student();
 	Student(string SBD);
 	Student(int level);
-	~Student();
-	void setBirthDay();
-	void setEmail();
-	void setMobileNumber();
-
-
+	void setBirthDay(string BD);
+	void setEmail(string email);
+	void setMobileNumber(string mobile);
+	string getStudentName();
+	string getStudentBD();
+	string getMobileNumber();
+	string getStudentEmail();
 };
 
