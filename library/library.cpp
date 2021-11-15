@@ -77,137 +77,140 @@ int main()
         cout << "Welcome Mr. " + usern << ", " << endl;
         cout << "Please choose what you want to do." << endl;
     }
-    
-    switch (level)
+    while (true)
     {
-    case 1:
-        cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian" << endl;
-        cin >> choice;
-        if (choice == 1)
+        switch (level)
         {
-            string name;
-            string password;
-            cout << "Please enter Admin Name: ";
-            cin >> name;
-            cout << "Please enter Admin Password: ";
-            cin >> password;
-            AD.AddAdmin(name,password);
-        }
-        if (choice == 2)
-        {
-            string name;
-            cout << "Please enter Admin name";
-            if (AD.RemoveAdmin(name))
+        case 1:
+            cout << "1-Add Admin\n2-Remove admin\n3-Add student\n4-Remove student\n5-Add librarian\n6-Remove librarian\n7-Exit" << endl;
+            cin >> choice;
+            if (choice == 1)
             {
-                cout << "\nRemoved";
+                string name;
+                string password;
+                cout << "Please enter Admin Name: ";
+                cin >> name;
+                cout << "Please enter Admin Password: ";
+                cin >> password;
+                AD.AddAdmin(name, password);
             }
-            else
+            if (choice == 2)
             {
-                cout << "\nThis name is not found.";
+                string name;
+                cout << "Please enter Admin name";
+                if (AD.RemoveAdmin(name))
+                {
+                    cout << "\nRemoved";
+                }
+                else
+                {
+                    cout << "\nThis name is not found.";
+                }
             }
-        }
-        if (choice == 3)
-        {
-            string name;
-            string password;
-            string email;
-            string BD;//BD is Birthday
-            cout << "Please enter Student Name: ";
-            cin >> name;
-            cout << "Please enter Student Password: ";
-            cin >> password;
-            cout << "Please enter Student Email";
-            cin >> email;
-            cout << "Please enter Student Birthday";
-            cin >> BD;
-            AD.AddStudent(name, password,email,BD);
-        }
-        if (choice == 4)
-        {
-            string name;
-            cout << "Please enter Student Name";
-            cin >> name;
-            if (AD.RemoveStudent(name))
+            if (choice == 3)
             {
-                cout << "\nRemoved";
+                string name;
+                string password;
+                string email;
+                string BD;//BD is Birthday
+                cout << "Please enter Student Name: ";
+                cin >> name;
+                cout << "Please enter Student Password: ";
+                cin >> password;
+                cout << "Please enter Student Email";
+                cin >> email;
+                cout << "Please enter Student Birthday";
+                cin >> BD;
+                AD.AddStudent(name, password, email, BD);
             }
-            else
+            if (choice == 4)
             {
-                cout << "\nThis name is not found.";
+                string name;
+                cout << "Please enter Student Name";
+                cin >> name;
+                if (AD.RemoveStudent(name))
+                {
+                    cout << "\nRemoved";
+                }
+                else
+                {
+                    cout << "\nThis name is not found.";
+                }
             }
-        }
-        if (choice == 5)
-        {
-            string name;
-            string password;
-            cout << "Please enter Librarian Name: ";
-            cin >> name;
-            cout << "Please enter Librarian Password: ";
-            cin >> password;
-            AD.AddLibrarian(name, password);
-        }
-        if (choice == 6)
-        {
-            string name;
-            cout << "Please enter Student Name";
-            cin >> name;
-            if (AD.RemoveLibrarian(name))
+            if (choice == 5)
             {
-                cout << "\nRemoved";
+                string name;
+                string password;
+                cout << "Please enter Librarian Name: ";
+                cin >> name;
+                cout << "Please enter Librarian Password: ";
+                cin >> password;
+                AD.AddLibrarian(name, password);
             }
-            else
+            if (choice == 6)
             {
-                cout << "This name is not found";
+                string name;
+                cout << "Please enter Student Name";
+                cin >> name;
+                if (AD.RemoveLibrarian(name))
+                {
+                    cout << "\nRemoved";
+                }
+                else
+                {
+                    cout << "This name is not found";
+                }
             }
+            if (choice == 7)
+            {
+                exit(0);
+            }
+            break;
+        case 2:
+            cout << "1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
+            cin >> choice;
+            if (choice == 1)
+            {
+                LN.AddBook();
+            }
+            if (choice == 2)
+            {
+                cout << "Please enter book name";
+                string name;
+                cin >> name;
+                LN.RemoveBook(name);
+            }
+            if (choice == 3)
+            {
+                cout << "Please enter book name";
+                string name;
+                int Quan = 0;
+                cin >> name;
+                cout << "Please enter Quantity";
+                cin >> Quan;
+                LN.IssueBook(name, Quan);
+            }
+            if (choice == 4)
+            {
+                cout << "Please enter book name";
+                string name;
+                cin >> name;
+                LN.ReturnBook(name);
+            }
+            if (choice == 5)
+            {
+                LN.ViewAllBooks();
+            }
+            if (choice == 6)
+            {
+                LN.SearchForBook();
+            }
+            break;
+        default:
+            cout << "Something went wrong with error code 1001";//first error code
+            break;
         }
-        break;
-    case 2:
-        cout<<"1-Add Book\n2-Remove Book\n3-Issue books\n4-Return Book\n5-View Books\n6-Search For Book (id/name)" << endl;
-        cin >> choice;
-        if (choice == 1)
-        {
-            LN.AddBook();
-        }
-        if (choice == 2)
-        {
-            cout << "Please enter book name";
-            string name;
-            cin >> name;
-            LN.RemoveBook(name);
-        }
-        if (choice == 3)
-        {
-            cout << "Please enter book name";
-            string name;
-            int Quan=0;
-            cin >> name;
-            cout << "Please enter Quantity";
-            cin >> Quan;
-            LN.IssueBook(name,Quan);
-        }
-        if (choice == 4)
-        {
-            cout << "Please enter book name";
-            string name;
-            cin >> name;
-            LN.ReturnBook(name);
-        }
-        if (choice == 5)
-        {
-            LN.ViewAllBooks();
-        }
-        if (choice == 6)
-        {
-            LN.SearchForBook();
-        }
-        break;
-    default:
-        cout << "Something went wrong with error code 1001";//first error code
-        break;
     }
-
-    
-    
     return 0;
 }
 
