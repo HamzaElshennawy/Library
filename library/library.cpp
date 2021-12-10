@@ -14,6 +14,7 @@ Please if there anytype of need to contact me don't hesitate to send me an E-mai
 
 
 */
+#include <SDL.h>
 #include <iostream>
 #include "Admin.h"
 #include "Book.h"
