@@ -4,35 +4,53 @@
 
 using namespace std;
 
-
+int Student::StudentID = 0;
 
 Student::Student()
 {
-	
+	StudentID++;
 }
 Student::Student(string SBD)
 {
+	StudentID++;
 	BirthDay = SBD;
 }
 Student::Student(int level)
 {
+	StudentID++;
 	setAccountType(level);
 }
-Student::~Student()
-{
 
+void Student::setBirthDay(string BD)
+{
+	BirthDay = BD;
 }
 
-void Student::setBirthDay()
+void Student::setEmail(string email)
 {
+	Email = email;
 }
 
-void Student::setEmail()
+void Student::setMobileNumber(string mobile)
 {
-
+	MobileNumber = mobile;
 }
 
-void Student::setMobileNumber()
+string Student::getStudentName()
 {
+	return getPersonName();
+}
 
+string Student::getStudentBD()
+{
+	return BirthDay;
+}
+
+string Student::getMobileNumber()
+{
+	return MobileNumber;
+}
+string Student::getStudentEmail()
+{
+	return Email;
 }

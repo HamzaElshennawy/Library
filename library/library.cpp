@@ -66,9 +66,9 @@ int main()
     cout << "************************************************************************************************************************\n";
     cout << "\t\t\t\tPlease Login to be able to use this application.";
     cout << "\nReading Data....";
-    Sleep(3000);
+    //Sleep(3000);
     cout<<"Please wait....";
-    Sleep(2000);
+    //Sleep(2000);
     ReadAllData();
     //showVectors();
     int level = login();//same from person account type
